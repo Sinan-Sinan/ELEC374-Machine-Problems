@@ -2,7 +2,6 @@
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 #include <stdio.h>
-
 //void PrintDeviceProperties: print off all the device properties for each device. 
 void PrintDeviceProperties(cudaDeviceProp dp) {
 	printf("device name and type: %s \n", dp.name);
@@ -14,12 +13,10 @@ void PrintDeviceProperties(cudaDeviceProp dp) {
 	printf("Number of registers available per block: %d\n", dp.regsPerBlock);
 	printf("Max threads per block: %d\n ", dp.maxThreadsPerBlock);
 	printf("Number of multiprocessors: %d\n", dp.multiProcessorCount);
-
 	for (int i = 0; i < 3; ++i)
 		printf("Maximum dimension %d of block:  %d\n", i, dp.maxThreadsDim[i]);
 	for (int i = 0; i < 3; ++i)
 		printf("Maximum dimension %d of grid:   %d\n", i, dp.maxGridSize[i]);
-
   //core calculation 
 	int major = dp.major;
 	int mpc = dp.multiProcessorCount;
@@ -55,13 +52,11 @@ void PrintDeviceProperties(cudaDeviceProp dp) {
 		break;
 	}//close case 
 }//close void device info 
-
 int main()
 {
 	int count;
 	cudaGetDeviceCount(&count);
 	printf("there are %d devices\n", count);
-
 	for (int i = 0; i < count; i++) {
 		cudaDeviceProp dp;
 		cudaGetDeviceProperties(&dp, i);
