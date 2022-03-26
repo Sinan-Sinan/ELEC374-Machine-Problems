@@ -29,39 +29,31 @@ void PrintDeviceProperties(cudaDeviceProp dp) {
 		cores = 32 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	case 3:
 		cores = 192 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	case 5:
 		cores = 128 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	case 6:
 		cores = 64 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	case 7:
 		cores = 64 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	case 8:
 		cores = 64 * mpc;
 		printf("This device has %d cores.\n", cores);
 		break;
-
 	default:
 		cores = -1;
 		printf("Error getting number of cores.\n");
 		break;
-
 	}//close case 
-
 }//close void device info 
 
 int main()
@@ -75,6 +67,5 @@ int main()
 		cudaGetDeviceProperties(&dp, i);
 		printf("-------------------\n");
 		PrintDeviceProperties(dp);
-
 	}
 }
